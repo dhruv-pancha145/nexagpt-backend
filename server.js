@@ -30,13 +30,23 @@ import chatRoute from "./routes/chat.js";
 const app = express();
 
 app.use(express.json());
+// app.use(
+//   cors({
+//     origin: ["http://localhost:5173"],
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     credentials: true,
+//   }),
+// );
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: [
+      "http://localhost:5173", 
+      "https://nexagpt-frontend-3ci5.vercel.app" 
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   }),
-);
+);;
 
 const PORT = process.env.PORT || 8080;
 
