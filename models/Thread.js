@@ -10,14 +10,13 @@ const MessageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  timestamp: {  // स्पेलिंग मिस्टेक (timestemp) को भी यहाँ ठीक कर दिया है
+  timestamp: {  
     type: Date,
     default: Date.now
   },
 });
 
 const ThreadsSchema = new mongoose.Schema({
-    // 1. यहाँ हमने थ्रेड को User Model की ID से लिंक कर दिया है
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',

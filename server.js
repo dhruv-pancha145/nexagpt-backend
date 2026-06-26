@@ -1,6 +1,6 @@
-import dns from 'dns';
-dns.setDefaultResultOrder('ipv4first');
-dns.setServers(['8.8.8.8', '8.8.4.4']);
+import dns from "dns";
+dns.setDefaultResultOrder("ipv4first");
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
 // import OpenAI from 'openai';
 // import 'dotenv/config';
@@ -27,48 +27,27 @@ import authRoute from "./routes/auth.js";
 
 import chatRoute from "./routes/chat.js";
 
-// import { Messages } from "openai/resources/chat/completions.js";
 const app = express();
 
 app.use(express.json());
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-    ],
+    origin: ["http://localhost:5173"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   }),
 );
 
-
 const PORT = process.env.PORT || 8080;
-
-
 
 // we test the api end point with use this code
 // app.post("/test", async (req, res) => {
-  
+
 // });
 
-app.use("/api",chatRoute);
+app.use("/api", chatRoute);
 app.use("/api/auth", authRoute); // Auth routes registered
 app.use("/api", chatRoute);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const connectDB = async () => {
   try {
@@ -78,10 +57,6 @@ const connectDB = async () => {
     console.log("failed to connect with DB", err);
   }
 };
-
-
-
-
 
 app.listen(PORT, () => {
   console.log(`server is running on ${PORT}`);

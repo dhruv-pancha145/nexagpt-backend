@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: Run Backend Tests
-        run: npm test # 🛑 Agar backend test fail hua toh deploy nahi hoga
+        run: npm test 
 
   deploy-backend:
     runs-on: ubuntu-latest
